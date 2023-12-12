@@ -7,7 +7,7 @@ RUN echo "Building the Docker image for my Java application"
 
 
 # Copy the JAR file into the container
-COPY ./target/*.jar spring-boot-docker.jar
+ADD ./target/spring-boot-docker.jar spring-boot-docker.jar
 
 
 # Log a message indicating the JAR file is added
