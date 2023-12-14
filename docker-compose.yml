@@ -30,7 +30,7 @@ services:
       
   react-app:
     build:
-      context: ./sshkey  
+      context: ../sshkey  
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
