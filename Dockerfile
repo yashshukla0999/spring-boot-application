@@ -1,16 +1,9 @@
-#define a base image
-FROM openjdk
-
-# Log a message during the build process
-RUN echo "Building the Docker image for my Java application"
-
-
-
-# Copy the JAR file into the container
-ADD ./target/spring-boot-docker.jar spring-boot-docker.jar
-
-
-# Log a message indicating the JAR file is added
-RUN echo "JAR file copied successfully"
-
-ENTRYPOINT ["java", "-jar", "/spring-boot-docker.jar"]
+#
+# Build stage
+#
+FROM maven:3.8.3-openjdk-17 AS build
+COPY src /home/app/src
+COPY pom.xml /home/app
+RUN mvn -f /home/app/pom.xml clean package
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","/home/app/target/spring-boot-docker.jar"]
