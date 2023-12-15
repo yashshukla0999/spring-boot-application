@@ -24,7 +24,9 @@ services:
       - springapimysql-net  
     environment:
       MYSQL_DATABASE: docker
-      MYSQL_ROOT_PASSWORD: Amila_Rpw
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 1234
+      MYSQL_ROOT_PASSWORD: 1234
       
   react-app:
     build:
