@@ -2,6 +2,7 @@ version: "3.7"
 services:
   api_service:
     build: .
+    restart: always
     ports:
       - 8080:8080
     networks:
@@ -22,7 +23,7 @@ services:
     networks:
       - springapimysql-net  
     environment:
-      MYSQL_DATABASE: docker
+      MYSQL_DATABASE: docker 
       MYSQL_PASSWORD: 1234
       MYSQL_ROOT_PASSWORD: 1234
       
